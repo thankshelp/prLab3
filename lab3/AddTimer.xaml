@@ -5,15 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab3"
         mc:Ignorable="d"
-        Title="AddTimer" Height="450" Width="800">
-    <Grid>
-        <Calendar x:Name="cal" HorizontalAlignment="Left" Margin="37,114,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="32" Margin="37,48,0,0" TextWrapping="Wrap" Text="Введите имя" VerticalAlignment="Top" Width="111"/>
-        <TextBox x:Name="hours" HorizontalAlignment="Left" Height="32" Margin="180,48,0,0" TextWrapping="Wrap" Text="часы" VerticalAlignment="Top" Width="113"/>
-        <TextBox x:Name="min" HorizontalAlignment="Left" Height="32" Margin="316,48,0,0" TextWrapping="Wrap" Text="минуты" VerticalAlignment="Top" Width="94"/>
-        <TextBox x:Name="sec" HorizontalAlignment="Left" Height="32" Margin="444,48,0,0" TextWrapping="Wrap" Text="секунды" VerticalAlignment="Top" Width="102"/>
-        <Button x:Name="add" Content="добавить" HorizontalAlignment="Left" Height="38" Margin="243,244,0,0" VerticalAlignment="Top" Width="90" Click="add_Click"/>
-        <Button x:Name="can" Content="отмена" HorizontalAlignment="Left" Height="38" Margin="365,244,0,0" VerticalAlignment="Top" Width="94" Click="can_Click"/>
+        Title="AddTimer" Height="384.083" Width="242.251">
+    <Grid Margin="0,0,-8,-5" Background="#FFFFCFEE">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Calendar x:Name="cal" HorizontalAlignment="Left" Margin="28,116,0,0" VerticalAlignment="Top" BorderBrush="#FFBBFFF6">
+            <Calendar.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFBBFFFF" Offset="0.159"/>
+                    <GradientStop Color="White" Offset="0.16"/>
+                    <GradientStop Color="#FFFFFFF6" Offset="1"/>
+                </LinearGradientBrush>
+            </Calendar.Background>
+        </Calendar>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="22" Margin="28,33,0,0" TextWrapping="Wrap" Text="Введите имя" VerticalAlignment="Top" Width="179"/>
+        <TextBox x:Name="hours" HorizontalAlignment="Left" Height="32" Margin="28,66,0,0" TextWrapping="Wrap" Text="часы" VerticalAlignment="Top" Width="49"/>
+        <TextBox x:Name="min" HorizontalAlignment="Left" Height="32" Margin="82,66,0,0" TextWrapping="Wrap" Text="минуты" VerticalAlignment="Top" Width="64"/>
+        <TextBox x:Name="sec" HorizontalAlignment="Left" Height="32" Margin="151,66,0,0" TextWrapping="Wrap" Text="секунды" VerticalAlignment="Top" Width="56"/>
+        <Button x:Name="add" Content="Добавить" HorizontalAlignment="Left" Height="30" Margin="28,300,0,0" VerticalAlignment="Top" Width="73" Click="add_Click" Background="#FFBBFFF6" BorderBrush="#FFBBFFF6"/>
+        <Button x:Name="can" Content="Отмена" HorizontalAlignment="Left" Height="30" Margin="134,300,0,0" VerticalAlignment="Top" Width="73" Click="can_Click" BorderBrush="#FFBBFFF6" Background="#FFBBFFF6"/>
 
     </Grid>
 </Window>

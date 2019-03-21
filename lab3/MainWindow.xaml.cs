@@ -70,21 +70,35 @@ namespace lab3
 
             if (adt.ShowDialog() == true)
             {
+                try
+                {
+                    int year = adt.cal.SelectedDate.Value.Year;
+                    int mon = adt.cal.SelectedDate.Value.Month;
+                    int day = adt.cal.SelectedDate.Value.Day;
 
-                int year = adt.cal.SelectedDate.Value.Year;
-                int mon = adt.cal.SelectedDate.Value.Month;
-                int day = adt.cal.SelectedDate.Value.Day;
+                    string name = adt.name.Text;
+                    int hrs = int.Parse(adt.hours.Text);
+                    int min = int.Parse(adt.min.Text);
+                    int sec = int.Parse(adt.sec.Text);
 
-                string name = adt.name.Text;
-                int hrs = int.Parse(adt.hours.Text);
-                int min = int.Parse(adt.min.Text);
-                int sec = int.Parse(adt.sec.Text);
+                    dt = new DateTime(year, mon, day, hrs, min, sec);
 
-                dt = new DateTime(year, mon, day, hrs, min, sec);
+                    stack.Items.Add(name);
 
-                stack.Items.Add(name);
-
-                list.Add(name, dt);
+                    list.Add(name, dt);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Неверный формат записи!");
+                }
+                catch (System.InvalidOperationException)
+                {
+                    MessageBox.Show("Вы не выбрали дату!");
+                }
+                catch (System.ArgumentOutOfRangeException)
+                {
+                    MessageBox.Show("Неверное время!");
+                }
 
             }
             else
@@ -110,12 +124,18 @@ namespace lab3
 
         private void del_Click(object sender, RoutedEventArgs e)
         {
-
-            list.Remove(nm);
-            stack.Items.Remove(nm);
-            Timer.Stop();
-            v = false; 
-            tb.Text = "";
+            if (stack.SelectedIndex > -1)
+            {
+                list.Remove(nm);
+                stack.Items.Remove(nm);
+                Timer.Stop();
+                v = false;
+                tb.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Список пуст!");
+            }
         }
 
         private void save_Click(object sender, RoutedEventArgs e)
@@ -139,7 +159,39 @@ namespace lab3
 
         private void open_Click(object sender, RoutedEventArgs e)
         {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.FileName = "Document";
+            dlg.DefaultExt = "Text documents (.txt)|*.txt";
+            dlg.ShowDialog();
 
+            try {
+                using (StreamReader file = new StreamReader(dlg.FileName)) {
+
+                    string line;
+
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        try
+                        {
+                            nm = line;
+                            line = file.ReadLine();
+                            dt = DateTime.Parse(line);
+
+                            stack.Items.Add(nm);
+                            list.Add(nm, dt);
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("Неверный формат записи!");
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Файл не найден!");
+            }
+            
         }
 
         private void chan_Click(object sender, RoutedEventArgs e)
@@ -168,6 +220,10 @@ namespace lab3
                     list.Add(name, dt);
                     //list[stack.SelectedValue.ToString()] =  dt;
                 }
+            }
+            else
+            {
+                MessageBox.Show("Список пуст!");
             }
         }
     }

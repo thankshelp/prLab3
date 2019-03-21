@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="bt" Content="Добавить в список" HorizontalAlignment="Left" Height="68" Margin="190,160,0,0" VerticalAlignment="Top" Width="151" Click="bt_Click"/>
-        <ListBox x:Name="stack" HorizontalAlignment="Left" Height="233" Margin="479,84,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="stack_SelectionChanged"/>
-        <TextBox x:Name="tb" HorizontalAlignment="Left" Height="55" Margin="149,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
-        <Button x:Name="del" Content="Удалить" HorizontalAlignment="Left" Margin="168,264,0,0" VerticalAlignment="Top" Width="75" Click="del_Click"/>
-        <Button x:Name="chan" Content="Редактировать" HorizontalAlignment="Left" Margin="298,264,0,0" VerticalAlignment="Top" Width="115" Height="53" Click="chan_Click"/>
-        <CheckBox x:Name="cbd" Content="Дни" HorizontalAlignment="Left" Margin="78,354,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbh" Content="Часы" HorizontalAlignment="Left" Margin="203,354,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbm" Content="Минуты" HorizontalAlignment="Left" Margin="325,369,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbs" Content="Секунды" HorizontalAlignment="Left" Margin="451,384,0,0" VerticalAlignment="Top"/>
-        <Menu x:Name="menu" HorizontalAlignment="Left" Height="100" Margin="20,148,0,0" VerticalAlignment="Top" Width="100">
+        Title="MainWindow" Height="434" Width="490">
+    <Grid Margin="0,0,-8,-2" Background="#FFBBFFF6">
+        <Button x:Name="bt" Content="Добавить в список" HorizontalAlignment="Left" Height="24" Margin="42,295,0,0" VerticalAlignment="Top" Width="118" Click="bt_Click" Background="#FFFFCFEE" BorderBrush="#FFFFCFEE"/>
+        <ListBox x:Name="stack" HorizontalAlignment="Left" Height="240" Margin="42,41,0,0" VerticalAlignment="Top" Width="118" SelectionChanged="stack_SelectionChanged" BorderBrush="White"/>
+        <TextBox x:Name="tb" HorizontalAlignment="Left" Height="78" Margin="188,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" FontSize="48" TextAlignment="Center" BorderBrush="White"/>
+        <Button x:Name="del" Content="Удалить" HorizontalAlignment="Left" Margin="42,353,0,0" VerticalAlignment="Top" Width="118" Click="del_Click" Height="19" Background="#FFFFCFEE" BorderBrush="#FFFFCFEE"/>
+        <Button x:Name="chan" Content="Редактировать" HorizontalAlignment="Left" Margin="42,324,0,0" VerticalAlignment="Top" Width="118" Height="24" Click="chan_Click" Background="#FFFFCFEE" BorderBrush="#FFFFCFEE"/>
+        <CheckBox x:Name="cbd" Content="Дни" HorizontalAlignment="Left" Margin="188,295,0,0" VerticalAlignment="Top" BorderBrush="White"/>
+        <CheckBox x:Name="cbh" Content="Часы" HorizontalAlignment="Left" Margin="240,295,0,0" VerticalAlignment="Top" BorderBrush="White"/>
+        <CheckBox x:Name="cbm" Content="Минуты" HorizontalAlignment="Left" Margin="302,295,0,0" VerticalAlignment="Top" BorderBrush="White"/>
+        <CheckBox x:Name="cbs" Content="Секунды" HorizontalAlignment="Left" Margin="382,295,0,0" VerticalAlignment="Top" BorderBrush="White"/>
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="43" Margin="188,324,0,0" VerticalAlignment="Top" Width="100" Background="#FFFFCFEE">
             <MenuItem x:Name="save" Header="Сохранить" Click="save_Click"/>
             <MenuItem x:Name="open" Header="Загрузить" Click="open_Click"/>
         </Menu>
